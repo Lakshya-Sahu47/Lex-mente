@@ -568,12 +568,9 @@
                 <a href="call-for-papers.html" class="btn btn-secondary">✍️ Submit Your Paper</a>
             </div>
             
-            <div class="featured-update" id="instagram-feed">
+            <div class="featured-update">
                 <h2>Today's Legal Update</h2>
-                <div id="insta-post-content">
-                    <p>Loading latest update...</p>
-                    <div class="loader"></div>
-                </div>
+                <p>Supreme Court Clarifies: Right to Protest Cannot Infringe on Others' Fundamental Rights</p>
                 <a href="https://www.instagram.com/lexmente.in" class="btn btn-secondary" target="_blank">View More on Instagram →</a>
             </div>
         </section>
@@ -637,62 +634,7 @@
                     link.classList.add('active');
                 }
             });
-
-            // Fetch Instagram post
-            fetchInstagramPost();
         });
-
-        // Instagram API Integration
-        async function fetchInstagramPost() {
-            const loader = document.querySelector('.loader');
-            const instaContent = document.getElementById('insta-post-content');
-            
-            loader.style.display = 'block';
-            
-            try {
-                // Note: Instagram's API requires proper authentication
-                // This is a simplified approach that may need server-side implementation
-                // for production use due to CORS and authentication requirements
-                
-                // Option 1: Using Instagram Basic Display API (requires access token)
-                // const response = await fetch('https://graph.instagram.com/me/media?fields=id,caption&access_token=YOUR_ACCESS_TOKEN');
-                
-                // Option 2: Using a proxy server to avoid CORS issues
-                const response = await fetch('https://www.instagram.com/lexmente.in/?__a=1');
-                
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                
-                const data = await response.json();
-                
-                // Parse the response based on the API structure
-                let postText = "Latest legal updates from Lex Mente";
-                
-                // For Instagram Basic Display API
-                // if (data.data && data.data[0] && data.data[0].caption) {
-                //     postText = data.data[0].caption;
-                // }
-                
-                // For the alternative approach
-                if (data.graphql && data.graphql.user && data.graphql.user.edge_owner_to_timeline_media) {
-                    const posts = data.graphql.user.edge_owner_to_timeline_media.edges;
-                    if (posts.length > 0 && posts[0].node && posts[0].node.edge_media_to_caption) {
-                        postText = posts[0].node.edge_media_to_caption.edges[0].node.text;
-                    }
-                }
-                
-                instaContent.innerHTML = `<p>${postText}</p>`;
-            } catch (error) {
-                console.error('Error fetching Instagram post:', error);
-                instaContent.innerHTML = `
-                    <p>Supreme Court Clarifies: Right to Protest Cannot Infringe on Others' Fundamental Rights</p>
-                    <p><small>Could not load latest update. Showing sample content.</small></p>
-                `;
-            } finally {
-                loader.style.display = 'none';
-            }
-        }
     </script>
 </body>
 </html>
