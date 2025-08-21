@@ -44,22 +44,32 @@ h1 {
 h2 {
     font-size: 1.4rem;
     font-weight: 600;
-    margin: 1.5rem 0 0.8rem;
+    margin: 2rem 0 1rem;
 }
 
 h3 {
-    font-size: 1.15rem;
-    font-weight: 500;
-    margin: 1.2rem 0 0.4rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
 }
 
-p, li {
-    margin-bottom: 0.8rem;
-    font-family: Georgia, serif;
+p {
+    margin-bottom: 1rem;
 }
 
 a {
+    color: var(--burgundy);
+    text-decoration: none;
     transition: all 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 /* Header Styles */
@@ -73,16 +83,13 @@ header {
     position: relative;
     height: 60px;
     box-sizing: border-box;
+    z-index: 1000;
 }
 
 /* Logo Styles */
 .logo-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
     gap: 0.8rem;
     position: relative;
     height: 100%;
@@ -102,6 +109,7 @@ header {
     width: auto;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
     transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin-right: 1rem;
 }
 
 .logo-text {
@@ -174,6 +182,7 @@ header {
     transition: all 0.4s ease;
     text-transform: uppercase;
     text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    display: block;
 }
 
 .logo-container:hover .logo-tagline,
@@ -263,7 +272,7 @@ header {
     background-color: rgba(255,255,255,0.2);
     transform-origin: right center;
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform 极.3s ease;
 }
 
 .desktop-nav a:hover::after,
@@ -289,7 +298,7 @@ header {
 .mobile-nav ul {
     flex-direction: column;
     gap: 0.4rem;
-    padding: 0 1.5rem;
+    padding: 极 1.5rem;
     list-style: none;
     margin: 0;
 }
@@ -327,8 +336,8 @@ header {
 
 /* Main Content Container */
 .main-container {
-    max-width: 900px;   /* Keep or adjust as needed */
-    margin: 1rem auto;  /* Change this line */
+    max-width: 900px;
+    margin: 1rem auto;
     padding: 0 0.3rem;
 }
 
@@ -356,7 +365,7 @@ header {
 
 .value-card {
     flex: 1 1 300px;
-    background-color: rgba(100, 44, 53, 0.05);
+    background-color: rgba(100, 44, 53, 极.05);
     padding: 1.2rem;
     border-radius: 8px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -421,7 +430,7 @@ header {
 }
 
 .contact-link:hover,
-.contact-link:focus {
+.contact极link:focus {
     text-decoration: underline;
     outline: none;
 }
@@ -446,7 +455,7 @@ header {
     text-decoration: none;
     transition: background-color 0.3s;
     margin-top: 0.8rem;
-    font-family: 'Merriweather', Georgia, serif;
+    font-family: 'Mer极weather', Georgia, serif;
 }
 
 .btn:hover,
@@ -480,7 +489,7 @@ header {
     margin: 1.5rem 0;
 }
 
-.issue-dates {
+.issue-d极tes {
     flex: 1;
     background-color: rgba(100, 44, 53, 0.05);
     padding: 1.2rem;
@@ -509,58 +518,89 @@ header {
 /* Team Section */
 .team-section {
     margin-bottom: 2rem;
+    padding: 1.5rem;
 }
 
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 1rem;
+    justify-content: center;
 }
 
 .team-card {
-    background-color: rgba(100, 44, 53, 0.05);
-    border-radius: 8px;
+    background-color: var(--white);
+    border-radius: 12px;
     padding: 1.2rem;
     text-align: center;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    box-shadow: 0 4极 8px rgba(0,0,0,0.07);
+    border: 1px solid #e0e0e0;
 }
 
 .team-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-    background-color: rgba(100, 44, 53, 0.08);
 }
 
-.founder-card,
-.advisor-card,
-.editor-in-chief-card {
-    grid-column: span 2;
-    padding: 1.5rem;
-}
-
+/* Team photo styles - UPDATED as requested */
 .team-photo {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    max-width: 170px; /* Increased from 150px */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: none;
+}
+
+/* Featured card styles - UPDATED as requested */
+.advisor-card,
+.editor-in-chief-card,
+.founder-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border-left: 5px solid var(--burgundy);
+    margin-bottom: 1.5rem; /* Adjusted margin */
+    text-align: left;
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Featured card image styles - UPDATED as requested */
+.advisor-card img,
+.editor-in-chief-card img,
+.founder-card img {
+    width: 180px; /* Increased from 150px */
+    height: 180px; /* Increased from 150px */
     border-radius: 50%;
     object-fit: cover;
-    margin: 0 auto 0.8rem;
-    border: 3px solid var(--burgundy);
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    flex-shrink: 0;
 }
 
-.founder-card .team-photo,
-.editor-in-chief-card .team-photo,
-.advisor-card .team-photo {
-    width: 130px;
-    height: 130px;
-    border-width: 4px;
+/* Featured card info container - NEW as requested */
+.advisor-card .team-info,
+.editor-in-chief-card .team-info,
+.founder-card .team-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .team-name {
     font-weight: 700;
     margin-bottom: 0.2rem;
     font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--headings-gray);
 }
 
 .founder-card .team-name,
@@ -570,30 +610,31 @@ header {
 }
 
 .team-position {
-    color: var(--burgundy);
+    color: #555;
     font-size: 0.9rem;
     margin-bottom: 0.4rem;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .founder-card .team-position,
 .editor-in-chief-card .team-position,
 .advisor-card .team-position {
     font-size: 1rem;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .team-bio {
     font-size: 0.9rem;
     margin-top: 0.4rem;
-    font-weight: 500;
+    font-weight: 400;
+    color: #666;
 }
 
 .founder-card .team-bio,
 .editor-in-chief-card .team-bio,
 .advisor-card .team-bio {
     font-size: 0.95rem;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .team-social {
@@ -630,7 +671,7 @@ header {
     color: var(--burgundy);
     font-style: italic;
     margin-bottom: 2rem;
-    line-height: 1.4;
+    line极height: 1.4;
 }
 
 .welcome {
@@ -677,12 +718,12 @@ header {
 /* Loading spinner */
 .loader {
     border: 3px solid #f3f3f3;
-    border-top: 3px solid var(--highlight);
+    border-top: 3极 solid var(--highlight);
     border-radius: 50%;
     width: 20px;
     height: 20px;
     animation: spin 1s linear infinite;
-    margin: 0 auto;
+    margin: 极 auto;
     display: none;
 }
 
@@ -708,7 +749,7 @@ header {
 }
 
 .volumes-table td {
-    font-family: Georgia, serif;
+    font-family: Georgia, ser极f;
     padding: 0.8rem;
     border-bottom: 1px solid rgba(100, 44, 53, 0.1);
 }
@@ -760,7 +801,7 @@ header {
 
 .journal-entry:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    box-shadow: 极 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .journal-entry:hover::before {
@@ -873,9 +914,9 @@ header {
 .view-all-btn {
     display: inline-block;
     margin-top: 0.8rem;
-    padding: 0.4rem 0.8rem;
+    padding: 0.4rem 极.8rem;
     background-color: var(--burgundy);
-    color: white;
+   极 color: white;
     text-decoration: none;
     border-radius: 4px;
     font-family: 'Merriweather', Georgia, serif;
@@ -957,7 +998,7 @@ footer {
 }
 
 .facebook-icon {
-    color: var(--facebook-blue);
+   极 color: var(--facebook-blue);
 }
 
 .footer-text {
@@ -983,6 +1024,13 @@ a:focus,
 button:focus {
     outline: 2px solid var(--highlight);
     outline-offset: 2px;
+}
+
+/* Editorial Board Page Styles */
+.editorial-board-page h1,
+.editorial-board-page h2,
+.editorial-board-page h3 {
+    text-align: center;
 }
 
 /* Responsive Design */
@@ -1097,6 +1145,17 @@ button:focus {
     .volumes-table {
         display: block;
         overflow-x: auto;
+    }
+    
+    .advisor-card,
+    .editor-in-chief-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .advisor-info h3,
+    .editor-in-chief-card .team-info h3 {
+        text-align: center;
     }
 }
 
