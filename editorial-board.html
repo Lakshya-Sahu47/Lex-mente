@@ -262,8 +262,40 @@
         }
         
         /* Special card styles */
-        .advisor-card, .editor-in-chief-card, .founder-card {
+        .founder-card {
             border-top: 4px solid var(--burgundy);
+        }
+
+        /* --- STYLES FOR PATRON AND EDITOR-IN-CHIEF (UPDATED) --- */
+        .advisor-card,
+        .editor-in-chief-card {
+            grid-column: 1 / -1; /* Make card span full width of the grid */
+            display: flex;
+            flex-direction: row;
+            align-items: center; 
+            gap: 2.5rem; /* Increased gap */
+            padding: 2rem; /* Increased padding */
+            text-align: left;
+            border-top: none;
+            max-width: 900px; /* Control max width on large screens */
+            margin-left: auto; /* Center the card in the grid space */
+            margin-right: auto;
+        }
+
+        .advisor-card .team-photo,
+        .editor-in-chief-card .team-photo {
+            width: 320px; /* Increased size */
+            height: 320px; /* Increased size */
+            border-radius: 8px; /* Changed from 50% to 8px */
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 5px solid var(--white);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .advisor-card .team-info,
+        .editor-in-chief-card .team-info {
+            padding: 0; /* Remove default padding */
         }
         
         /* Footer Styles from contact.html */
@@ -322,6 +354,16 @@
             .desktop-nav ul {
                 gap: 0.8rem;
             }
+
+            .advisor-card, .editor-in-chief-card {
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .advisor-card .team-photo, .editor-in-chief-card .team-photo {
+                width: 220px;
+                height: 220px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -353,6 +395,20 @@
             .team-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
+            }
+
+            .advisor-card,
+            .editor-in-chief-card {
+                /* On small screens, stack them vertically for better readability */
+                flex-direction: column; 
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+
+            .advisor-card .team-photo, .editor-in-chief-card .team-photo {
+                width: 250px;
+                height: 250px;
+                margin-bottom: 1rem;
             }
             
             .social-links {
@@ -421,35 +477,6 @@
             </div>
         </div>
         
-        <div class="team-section">
-            <h2>Advisory Board</h2>
-            <div class="team-grid">
-                <div class="team-card advisor-card">
-                    <img src="https://via.placeholder.com/150" alt="Dr. Jane Smith, Legal Scholar" class="team-photo">
-                    <div class="team-info">
-                        <div class="team-name">Dr. Jane Smith</div>
-                        <div class="team-position">Legal Scholar</div>
-                        <div class="team-bio">Professor of Constitutional Law</div>
-                        <div class="team-social">
-                            <a href="#" aria-label="Dr. Jane Smith's LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" aria-label="Dr. Jane Smith's Twitter"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="team-card advisor-card">
-                    <img src="https://via.placeholder.com/150" alt="Prof. John Doe, Human Rights Expert" class="team-photo">
-                    <div class="team-info">
-                        <div class="team-name">Prof. John Doe</div>
-                        <div class="team-position">Human Rights Expert</div>
-                        <div class="team-bio">Director, Center for Legal Studies</div>
-                        <div class="team-social">
-                            <a href="#" aria-label="Prof. John Doe's LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" aria-label="Prof. John Doe's Twitter"><i class="fab fa-twitter"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         
         <div class="team-section">
             <h2>Editorial Board</h2>
@@ -567,6 +594,29 @@
                         <div class="team-social">
                             <a href="#" aria-label="Vartul Agnihotri's LinkedIn"><i class="fab fa-linkedin"></i></a>
                             <a href="#" aria-label="Vartul Agnihotri's Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="team/media-2.jpg" alt="Amritansh Verma" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Amritansh Verma</div>
+                        <div class="team-bio">Student – BBD University, Lucknow </div>
+                        <div class="team-social">
+                            <a href="#" aria-label="Amritansh Verma's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Amritansh Verma's Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="https://via.placeholder.com/150" alt="Lisa Park, Web Developer" class="team-photo">
+                    <div class="team-info">
+                        <div class="team-name">Lisa Park</div>
+                        <div class="team-position">Web Developer</div>
+                        <div class="team-bio">Digital Platform Architect</div>
+                        <div class="team-social">
+                            <a href="#" aria-label="Lisa Park's LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" aria-label="Lisa Park's Twitter"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
                 </div>
